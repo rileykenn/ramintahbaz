@@ -1,0 +1,63 @@
+@import './assets/fonts/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base-size: 14.5px;
+  --viewport-height: 100vh;
+}
+
+@layer base {
+  
+  @media screen and (min-width: 991px){
+    html {
+      font-size: var(--base-size);
+    }
+  }
+  
+  body {
+    @apply bg-[#ffffff] text-gray-900;
+    font-family: "Soehne Buch", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variation-settings: 'slnt' 0, 'MONO' 0.5;
+    font-size: 16pt;
+    line-height: 1.5;
+    min-height: var(--viewport-height);
+  }
+}
+
+/* Custom styles for the drum machine buttons */
+.drum-button {
+  @apply transition-all duration-150 ease-in-out;
+  font-size: 16pt;
+}
+
+.drum-button:active {
+  @apply transform scale-95;
+}
+
+/* Navigation arrow styles */
+.arrow {
+  @apply mr-2 text-gray-400;
+  font-size: 16pt;
+}
+
+/* Responsive utilities */
+.responsive-text {
+  font-size: calc(var(--base-size) * 1);
+}
+
+.responsive-container {
+  max-width: calc(var(--base-size) * 60);
+  margin: 0 auto;
+  padding: 0 calc(var(--base-size) * 1);
+}
+
+@media screen and (max-width: 767px){
+    body{
+        font-size: 16px;
+    }
+}
