@@ -1,17 +1,10 @@
 import React from 'react';
-//import useWindowResize from '../../hooks/useWindowResize';
 import Layout from './Layout';
-const PageLayout = ({ children }) => {
-  //const { windowSize, baseUnit } = useWindowResize();
 
+const PageLayout = ({ children }) => {
   return (
     <Layout>
-      <div 
-        className="flex flex-col"
-        style={{ 
-         // '--base-unit': `${baseUnit}px`
-        }}
-      >
+      <div className="flex flex-col">
         {children}
       </div>
     </Layout>

@@ -6,16 +6,14 @@ const PageLayoutWorkSingle = ({ children }) => {
   const { baseUnit } = useWindowResize();
 
   return (
-    <div className={`min-h-screen overflow-hidden dark:bg-dark-bg bg-white-bg`}>
-      <div className="p-8 md:p-20 w-full md:max-w-[65%]">
+    <div className="min-h-screen w-full overflow-x-hidden bg-white dark:bg-[#1c1f26]">
+      <div className="mx-auto w-full px-6 sm:px-8 lg:px-12 max-w-[1400px]">
         <Navbar />
-        <main className={`mt-8 dark:text-dark-text text-light-text`}>
-          <div
-            className="flex flex-col"
-            style={{
-              '--base-unit': `${baseUnit}px`,
-            }}
-          >
+        <main
+          className="mt-8 text-black dark:text-white"
+          style={{ '--base-unit': `${baseUnit}px` }}
+        >
+          <div className="flex flex-col">
             {children}
           </div>
         </main>
