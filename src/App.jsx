@@ -58,7 +58,7 @@ const App = () => {
               <Route path="/awards" element={<Awards />} />
               <Route path="/works" element={<Works />} />
               <Route path="/works/:slug" element={<Work />} />
-              <Route path="/rhythm" element={<Rhythm />} />
+              <Route path="/rhythm]" element={<Rhythm />} />
             </Routes>
           </Suspense>
         </ThemeProvider>

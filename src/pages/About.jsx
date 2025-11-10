@@ -14,6 +14,36 @@ const About = () => {
   if (loading) return null; // you can add your own spinner if wanted
   if (error) return <div>Error loading about.</div>;
 
+  // --- EXTRA LINKS TO APPEND (will not duplicate if already present)
+  const extraLinks = [
+    {
+      id: 'external-x',
+      Link: 'https://x.com/ramintahbaz',
+      Name: 'X',
+      Target: '_blank',
+    },
+    {
+      id: 'external-linkedin',
+      Link: 'https://www.linkedin.com/in/ramin-tahbaz/',
+      Name: 'LinkedIn',
+      Target: '_blank',
+    },
+    {
+      id: 'external-imdb',
+      Link: 'https://www.imdb.com/name/nm11702949/',
+      Name: 'iMDB',
+      Target: '_blank',
+    },
+  ];
+
+  // Merge menu from settings with extraLinks (avoid duplicates by Link)
+  const originalMenu = settingsData?.Menu || [];
+  const existingLinks = new Set(originalMenu.map((m) => String(m.Link).toLowerCase()));
+  const mergedMenu = [
+    ...originalMenu,
+    ...extraLinks.filter((e) => !existingLinks.has(String(e.Link).toLowerCase())),
+  ];
+
   return (
     <>
       <Helmet>
@@ -36,8 +66,12 @@ const About = () => {
         </div>
 
         <div className="flex flex-col space-y-2 mt-16">
-          {settingsData?.Menu?.map((menuItem) => (
-            <div key={menuItem.id} className="flex items-center text-[16px] md:text-[16pt] text-black dark:text-white">
+          {mergedMenu.map((menuItem) => (
+            <div
+              key={menuItem.id}
+              className="flex items-center text-[16px] md:text-[16pt] text-black dark:text-white"
+            >
+              {/* Keep same rendering pattern as before — external links use full URL */}
               <Link
                 to={menuItem.Link.startsWith('http') ? menuItem.Link : `/${menuItem.Link}`}
                 target={menuItem.Target}
