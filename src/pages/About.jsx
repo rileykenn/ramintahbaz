@@ -31,7 +31,7 @@ const About = () => {
     {
       id: 'external-imdb',
       Link: 'https://www.imdb.com/name/nm11702949/',
-      Name: 'iMDB',
+      Name: 'iMDb',
       Target: '_blank',
     },
   ];
